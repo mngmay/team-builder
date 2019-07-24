@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Form = props => {
-  const { member, setMember } = props;
+  const { members, setMembers, addMember } = props;
+  const [member, setMember] = useState({
+    name: "Name",
+    email: "Email",
+    role: "Role"
+  });
+
   console.log(member);
 
   function handleChange(event) {
@@ -9,16 +15,13 @@ const Form = props => {
       ...member,
       [event.target.name]: event.target.value
     };
-    console.log(
-      "handleChange",
-      event.target.name,
-      event.target.value,
-      updatedMember
-    );
+
     setMember(updatedMember);
   }
 
   function handleSubmit(event) {
+    const add = addMember;
+    add(member);
     event.preventDefault();
     console.log("member", member);
   }

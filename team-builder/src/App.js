@@ -4,13 +4,25 @@ import Form from "./components/Form";
 import "./App.css";
 
 function App() {
-  const [member, setMember] = useState({ name: "", email: "", role: "" });
+  const [members, setMembers] = useState([]);
+
+  function addMember(member) {
+    setMembers([...members, member]);
+  }
 
   return (
     <div className="App">
       Here's where the form should be
-      <li>Team Members will go here</li>
-      <Form member={member} setMember={setMember} />
+      <Form members={members} setMembers={setMembers} addMember={addMember} />
+      <div>
+        {members.map(person => {
+          return (
+            <li>
+              Name: {person.name} Email: {person.email} Role: {person.role}
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 }

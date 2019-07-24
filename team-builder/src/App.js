@@ -14,12 +14,11 @@ function App() {
 
   function editMember(member) {
     const index = members.indexOf(memberToEdit);
-    setMemberToEdit();
     console.log(index);
     return setMembers(
       members.map((person, i) => {
         if (i === index) {
-          return (person = member);
+          return member;
         } else {
           return person;
         }

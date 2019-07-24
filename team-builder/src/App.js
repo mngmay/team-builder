@@ -13,13 +13,16 @@ function App() {
   return (
     <div className="App">
       Here's where the form should be
-      <Form members={members} setMembers={setMembers} addMember={addMember} />
+      <Form addMember={addMember} />
       <div>
         {members.map(person => {
           return (
-            <li>
-              Name: {person.name} Email: {person.email} Role: {person.role}
-            </li>
+            <div className="team-member">
+              <li>
+                Name: {person.name} Email: {person.email} Role: {person.role}
+              </li>
+              <button>Edit</button>
+            </div>
           );
         })}
       </div>

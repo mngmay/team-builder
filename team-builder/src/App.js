@@ -4,12 +4,12 @@ import Form from "./components/Form";
 import "./App.css";
 
 function App() {
-  const [member, setMember] = useState("");
+  const [member, setMember] = useState({ name: "", email: "", role: "" });
 
   return (
     <div className="App">
       Here's where the form should be
-      <li>{member}</li>
+      <li>Team Members will go here</li>
       <Form member={member} setMember={setMember} />
     </div>
   );

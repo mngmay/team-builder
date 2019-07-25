@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 const Form = props => {
   const { addMember, memberToEdit, editMember } = props;
   const [member, setMember] = useState({
-    name: "Name",
-    email: "Email",
-    role: "Role"
+    name: "",
+    email: "",
+    role: ""
   });
 
   console.log(member);
@@ -23,9 +23,9 @@ const Form = props => {
     const add = addMember;
     add(member);
     setMember({
-      name: "Name",
-      email: "Email",
-      role: "Role"
+      name: "",
+      email: "",
+      role: ""
     });
     event.preventDefault();
     console.log("member", member);
@@ -41,9 +41,9 @@ const Form = props => {
     const edit = editMember;
     edit(member);
     setMember({
-      name: "Name",
-      email: "Email",
-      role: "Role"
+      name: "",
+      email: "",
+      role: ""
     });
     console.log("edited");
     event.preventDefault();
@@ -53,30 +53,36 @@ const Form = props => {
     return (
       <form onSubmit={editPerson}>
         <fieldset>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={member.name}
-            onChange={handleChange}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={member.email}
-            onChange={handleChange}
-          />
-          <label htmlFor="role">Role</label>
-          <input
-            type="text"
-            name="role"
-            placeholder="Enter your role"
-            value={member.role}
-            onChange={handleChange}
-          />
+          <div className="form-row">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={member.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={member.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="role">Role</label>
+            <input
+              type="text"
+              name="role"
+              placeholder="Enter your role"
+              value={member.role}
+              onChange={handleChange}
+            />
+          </div>
           <button type="submit">Submit</button>
         </fieldset>
       </form>
@@ -85,30 +91,36 @@ const Form = props => {
     return (
       <form onSubmit={handleSubmit}>
         <fieldset>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={member.name}
-            onChange={handleChange}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={member.email}
-            onChange={handleChange}
-          />
-          <label htmlFor="role">Role</label>
-          <input
-            type="text"
-            name="role"
-            placeholder="Enter your role"
-            value={member.role}
-            onChange={handleChange}
-          />
+          <div className="form-row">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={member.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={member.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="role">Role</label>
+            <input
+              type="text"
+              name="role"
+              placeholder="Enter your role"
+              value={member.role}
+              onChange={handleChange}
+            />
+          </div>
           <button type="submit">Submit</button>
         </fieldset>
       </form>

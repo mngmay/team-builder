@@ -5,22 +5,23 @@ import "./App.css";
 
 function App() {
   const [members, setMembers] = useState([]);
-  const [memberToEdit, setMemberToEdit] = useState(null);
+  const [memberToEdit, setMemberToEdit] = useState();
 
   function addMember(member) {
-    setMembers([...members, member]);
+    setMembers([...members, member]); //setMembers to existing array + new member added
   }
   console.log(memberToEdit);
 
   function editMember(member) {
     const index = members.indexOf(memberToEdit);
+    setMemberToEdit(); //resets setMember for the next check
     console.log(index);
     return setMembers(
       members.map((person, i) => {
         if (i === index) {
-          return member;
+          return member; //sets new state of member
         } else {
-          return person;
+          return person; //returns the person already there
         }
       })
     );
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      Here's where the form should be
+      <h1>Team Information</h1>
       <Form
         addMember={addMember}
         memberToEdit={memberToEdit}

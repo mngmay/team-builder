@@ -49,83 +49,124 @@ const Form = props => {
     event.preventDefault();
   }
 
-  if (memberToEdit) {
-    return (
-      <form onSubmit={editPerson}>
-        <fieldset>
-          <div className="form-row">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              value={member.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={member.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="role">Role</label>
-            <input
-              type="text"
-              name="role"
-              placeholder="Enter your role"
-              value={member.role}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
-    );
-  } else {
-    return (
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <div className="form-row">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              value={member.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={member.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="role">Role</label>
-            <input
-              type="text"
-              name="role"
-              placeholder="Enter your role"
-              value={member.role}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
-    );
-  }
+  let submitFunc;
+  memberToEdit ? (submitFunc = editPerson) : (submitFunc = handleSubmit);
+
+  return (
+    <form onSubmit={submitFunc}>
+      <fieldset>
+        <div className="form-row">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            value={member.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-row">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            value={member.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-row">
+          <label htmlFor="role">Role</label>
+          <input
+            type="text"
+            name="role"
+            placeholder="Enter your role"
+            value={member.role}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+  );
+
+  //   if (memberToEdit) {
+  //     return (
+  //       <form onSubmit={editPerson}>
+  //         <fieldset>
+  //           <div className="form-row">
+  //             <label htmlFor="name">Name</label>
+  //             <input
+  //               type="text"
+  //               name="name"
+  //               placeholder="Enter your name"
+  //               value={member.name}
+  //               onChange={handleChange}
+  //             />
+  //           </div>
+  //           <div className="form-row">
+  //             <label htmlFor="email">Email</label>
+  //             <input
+  //               type="email"
+  //               name="email"
+  //               placeholder="Enter email"
+  //               value={member.email}
+  //               onChange={handleChange}
+  //             />
+  //           </div>
+  //           <div className="form-row">
+  //             <label htmlFor="role">Role</label>
+  //             <input
+  //               type="text"
+  //               name="role"
+  //               placeholder="Enter your role"
+  //               value={member.role}
+  //               onChange={handleChange}
+  //             />
+  //           </div>
+  //           <button type="submit">Submit</button>
+  //         </fieldset>
+  //       </form>
+  //     );
+  //   } else {
+  //     return (
+  //       <form onSubmit={handleSubmit}>
+  //         <fieldset>
+  //           <div className="form-row">
+  //             <label htmlFor="name">Name</label>
+  //             <input
+  //               type="text"
+  //               name="name"
+  //               placeholder="Enter your name"
+  //               value={member.name}
+  //               onChange={handleChange}
+  //             />
+  //           </div>
+  //           <div className="form-row">
+  //             <label htmlFor="email">Email</label>
+  //             <input
+  //               type="email"
+  //               name="email"
+  //               placeholder="Enter email"
+  //               value={member.email}
+  //               onChange={handleChange}
+  //             />
+  //           </div>
+  //           <div className="form-row">
+  //             <label htmlFor="role">Role</label>
+  //             <input
+  //               type="text"
+  //               name="role"
+  //               placeholder="Enter your role"
+  //               value={member.role}
+  //               onChange={handleChange}
+  //             />
+  //           </div>
+  //           <button type="submit">Submit</button>
+  //         </fieldset>
+  //       </form>
+  //     );
+  //   }
 };
 
 export default Form;
